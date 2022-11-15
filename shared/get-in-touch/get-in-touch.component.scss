@@ -1,0 +1,49 @@
+.get-in-touch {
+  position: relative;
+  margin-top: 80px;
+  padding: 10px 20px;
+  img {
+    max-width: 200px;
+    position: absolute;
+    bottom: 0;
+  }
+  .content {
+    padding-left: 200px;
+    .customIcon {
+      margin-right: 10px;
+      .mat-icon {
+        font-size: 45px;
+        width: 45px;
+        height: 45px;
+      }
+    }
+    .call-now {
+      span:first-child {
+        display: block;
+        text-transform: uppercase;
+        font-size: smaller;
+      }
+      span:nth-child(2) {
+        font-weight: 600;
+      }
+    }
+  }
+  .content-desc {
+    font-family: "Lora", serif;
+    font-size: 22px;
+    font-weight: 500;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  .get-in-touch {
+    align-items: center;
+    justify-content: space-around;
+    img {
+      position: relative !important;
+    }
+    .content {
+      padding-left: 0px !important;
+    }
+  }
+}

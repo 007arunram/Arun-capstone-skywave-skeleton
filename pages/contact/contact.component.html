@@ -1,0 +1,127 @@
+<div fxLayout="column">
+  <app-header-image
+    [backgroundImage]="contactBgImage"
+    [title]="title"
+    [desc]="desc"
+  ></app-header-image>
+  <div class="px-3">
+    <div class="theme-container">
+      <mat-card class="contact-container pt-5" fxLayoutAlign="center center">
+        <mat-card-content>
+          
+          <!-- contact section on three column view mat icons & details -->
+          <div class="flex-container" fxLayout="row" fxLayout.xs="column">
+            <div
+              class="contactSection"
+              fxLayout="column"
+              fxFlex
+              fxLayoutAlign="start center"
+            >
+              <mat-icon class="address-icon" color="primary">home</mat-icon>
+              <span class="title">ADDRESS:</span>
+              <span>2903 Avenue Z, MG Marg, Mumbai, India</span>
+            </div>
+            <div
+              class="contactSection"
+              fxLayout="column"
+              fxFlex
+              fxLayoutAlign="center center"
+            >
+              <mat-icon color="primary">call</mat-icon>
+              <span class="title">PHONES:</span>
+              <span>(+91) 987 654 3210</span>
+              <span>(+91) 987 654 3211</span>
+            </div>
+            <div
+              class="contactSection"
+              fxLayout="column"
+              fxFlex
+              fxLayoutAlign="center center"
+            >
+              <mat-icon color="primary">mail_outline</mat-icon>
+              <span class="title">EMAIL:</span>
+              <span>contact@skywave.com</span>
+              <span>info@skywave.com</span>
+            </div>
+          </div>
+          <div
+            class="ContactFormWrapper"
+            class="flex-container mt-5"
+            fxLayout="row"
+            fxLayout.xs="column"
+            fxLayoutGap="2%"
+          >
+            <div class="contactForm" fxFlex="50%">
+              <h2 class="form-title">Get In Touch</h2>
+
+              <!-- contact section form -->
+              <form
+                [formGroup]="contactForm"
+                (ngSubmit)="onContactFormSubmit()"
+                class="custom-form pt-2"
+              >
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Name</mat-label>
+                  <input matInput autocomplete="off" formControlName="name" />
+                  <mat-error *ngIf="contactForm.controls.name.errors?.required"
+                    >Name is required</mat-error
+                  >
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Email</mat-label>
+                  <input matInput autocomplete="off" formControlName="email" />
+                  <mat-error *ngIf="contactForm.controls.email.errors?.required"
+                    >Email is required</mat-error
+                  >
+                  <mat-error
+                    *ngIf="contactForm.controls.email.hasError('invalidEmail')"
+                    >Invalid email address</mat-error
+                  >
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Phone</mat-label>
+                  <input matInput autocomplete="off" formControlName="phone" />
+                  <mat-error *ngIf="contactForm.controls.phone.errors?.required"
+                    >Phone is required</mat-error
+                  >
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Message</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="message"
+                    rows="6"
+                  ></textarea>
+                  <mat-error
+                    *ngIf="contactForm.controls.message.errors?.required"
+                    >Message is required</mat-error
+                  >
+                </mat-form-field>
+                <div class="w-100 text-center">
+                  <button
+                    mat-flat-button
+                    color="primary"
+                    class="uppercase submitBtn"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- contact section image  -->
+            <div fxFlex="50%">
+              <img
+                class="contact-img"
+                src="assets/images/others/about-1.jpg"
+                alt="contactImg"
+              />
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
